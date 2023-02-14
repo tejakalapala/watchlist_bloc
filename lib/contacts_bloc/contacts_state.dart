@@ -10,13 +10,13 @@ abstract class ContactsState extends Equatable {
 class ContactsLoadingState extends ContactsState {}
 class ContactsLoadedState extends ContactsState{
   final List<Contact> contacts;
-  ContactsLoadedState(this.contacts);
+  const ContactsLoadedState(this.contacts);
   @override
   List<Object> get props => [contacts];
 }
 class ContactsErrorState extends ContactsState {
   final String error;
-  ContactsErrorState(this.error);
+  const ContactsErrorState(this.error);
   @override
   List<Object> get props => [error];
 }

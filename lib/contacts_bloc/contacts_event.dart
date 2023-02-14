@@ -12,3 +12,13 @@ class LoadContactsEvent extends ContactsEvent {
   @override
   List<Object> get props => [contacts];
 }
+
+
+
+class SortContactsEvent extends ContactsEvent{
+  final List<Contact> contacts;
+  final  sortIndex;
+  const SortContactsEvent({this.contacts = const <Contact>[],this.sortIndex});
+  @override
+  List<Object> get props => [contacts];
+}

@@ -13,6 +13,19 @@ class ThemeCubit extends Cubit<ThemeData> {
       foregroundColor: Colors.white,
     ),
     brightness: Brightness.light,
+    textTheme: 
+    ThemeData.light().textTheme.copyWith(
+                titleLarge: const TextStyle(
+                  // fontFamily: 'OpenSans',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.white
+                ),
+                bodyLarge: const TextStyle(color: Colors.black,fontSize: 20),
+                bodySmall: const TextStyle(color: Colors.black,fontSize: 15,fontWeight: FontWeight.normal),
+                labelSmall: const TextStyle(color: Colors.black,fontSize: 15),
+                
+              ),
   );
 
   static final _darkTheme = ThemeData(
@@ -20,6 +33,17 @@ class ThemeCubit extends Cubit<ThemeData> {
       foregroundColor: Colors.black,
     ),
     brightness: Brightness.dark,
+     textTheme: ThemeData.dark().textTheme.copyWith(
+                titleLarge: const TextStyle(
+                  // fontFamily: 'OpenSans',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                  color: Colors.white
+                ),
+                bodyLarge: const TextStyle(color: Colors.white,fontSize: 20),
+                bodySmall: const TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.normal),
+                labelSmall: const TextStyle(color: Colors.white,fontSize: 15)
+              ),
   );
 
   

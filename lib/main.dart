@@ -31,12 +31,10 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             
             title: 'Flutter Demo',
-            themeMode: ThemeMode.system,
+            // themeMode: ThemeMode.system,
             theme: theme,
-    
-            // darkTheme: MyThemes.darkTheme,
-   
-  
+            
+            
             
             home: const TabsScreen(),
           );

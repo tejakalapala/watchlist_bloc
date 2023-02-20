@@ -15,10 +15,34 @@ class LoadContactsEvent extends ContactsEvent {
 
 
 
-class SortContactsEvent extends ContactsEvent{
+class SortContactsEventAtoZ extends ContactsEvent{
   final List<Contact> contacts;
-  final  sortIndex;
-  const SortContactsEvent({this.contacts = const <Contact>[],this.sortIndex});
+  // final  sortIndex;
+  const SortContactsEventAtoZ({this.contacts = const <Contact>[]});
+  @override
+  List<Object> get props => [contacts];
+}
+
+class SortContactsEventZtoA extends ContactsEvent{
+  final List<Contact> contacts;
+  // final  sortIndex;
+  const SortContactsEventZtoA({this.contacts = const <Contact>[]});
+  @override
+  List<Object> get props => [contacts];
+}
+
+class SortContactsEvent0to9 extends ContactsEvent{
+  final List<Contact> contacts;
+  // final  sortIndex;
+  const SortContactsEvent0to9({this.contacts = const <Contact>[]});
+  @override
+  List<Object> get props => [contacts];
+}
+
+class SortContactsEvent9to0 extends ContactsEvent{
+  final List<Contact> contacts;
+  // final  sortIndex;
+  const SortContactsEvent9to0({this.contacts = const <Contact>[]});
   @override
   List<Object> get props => [contacts];
 }

@@ -36,7 +36,7 @@ class _SelectSortState extends State<SelectSort> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                           const Text("Sorting",style: TextStyle(fontSize: 20.0,fontWeight: FontWeight.bold),),
+                            Text("Sorting",style: Theme.of(context).textTheme.bodyLarge,),
                           TextButton(onPressed: (){
                             _onDonePressed();
                           }, child: const Text("Done",style: TextStyle(color: Colors.blue),))
@@ -106,16 +106,16 @@ class _SelectSortState extends State<SelectSort> {
                             children: [
                                TextSpan(
                                 text: first,
-                                style: TextStyle(color:(sortIndex == index) ?Colors.blue: Colors.black)
+                                style: TextStyle(color:(sortIndex == index) ?Colors.blue: Theme.of(context).textTheme.bodySmall!.color)
                                ),
           
                                WidgetSpan(
-              child: Icon(Icons.arrow_downward,color: (sortIndex == index) ?Colors.blue: Colors.black, size: 14),
+              child: Icon(Icons.arrow_downward,color: (sortIndex == index) ?Colors.blue: Theme.of(context).textTheme.labelMedium!.color, size: 14),
           
           ),
           TextSpan(
             text: second,
-            style: TextStyle(color:(sortIndex == index) ?Colors.blue: Colors.black)
+            style: TextStyle(color:(sortIndex == index) ?Colors.blue:Theme.of(context).textTheme.bodySmall!.color)
           ),
                             ]
                           )

@@ -20,9 +20,12 @@ class ContactsBloc extends Bloc<ContactsEvent, ContactsState> {
         emit(ContactsErrorState(e.toString()));
       }
     });
-    on<SortContactsEvent>(_onSortContact);
+    on<SortContactsEventAtoZ>(_onSortContactAtoZ);
+    on<SortContactsEventZtoA>(_onSortContactZtoA);
+    on<SortContactsEvent0to9>(_onSortContact0to9);
+    on<SortContactsEvent9to0>(_onSortContact9to0);
   }
-  void _onSortContact(SortContactsEvent event,Emitter<ContactsState> emit){
+  void _onSortContactAtoZ(SortContactsEventAtoZ event,Emitter<ContactsState> emit){
     if (kDebugMode) {
       print("onSortContact");
     }
@@ -30,20 +33,55 @@ class ContactsBloc extends Bloc<ContactsEvent, ContactsState> {
     if(state is ContactsLoadedState){
       emit(ContactsLoadingState());
       List<Contact> contacts = state.contacts;
-      if(event.sortIndex == 1){
+      
     contacts.sort((a, b) => a.name!.compareTo(b.name!)
     );
-      }else if(event.sortIndex == 2){
+    
+    emit(ContactsLoadedState(contacts));
+    }
+  }
+  void _onSortContactZtoA(SortContactsEventZtoA event,Emitter<ContactsState> emit){
+    if (kDebugMode) {
+      print("onSortContact");
+    }
+    final state = this.state;
+    if(state is ContactsLoadedState){
+      emit(ContactsLoadingState());
+      List<Contact> contacts = state.contacts;
+      
     contacts.sort((b, a) => a.name!.compareTo(b.name!)
     );
-      }else if(event.sortIndex == 3){
+    
+    emit(ContactsLoadedState(contacts));
+    }
+  }
+  void _onSortContact0to9(SortContactsEvent0to9 event,Emitter<ContactsState> emit){
+    if (kDebugMode) {
+      print("onSortContact");
+    }
+    final state = this.state;
+    if(state is ContactsLoadedState){
+      emit(ContactsLoadingState());
+      List<Contact> contacts = state.contacts;
+      
     contacts.sort((a, b) => a.id!.compareTo(b.id!)
     );
-      }
-      else if(event.sortIndex == 4){
+    
+    emit(ContactsLoadedState(contacts));
+    }
+  }
+
+  void _onSortContact9to0(SortContactsEvent9to0 event,Emitter<ContactsState> emit){
+    if (kDebugMode) {
+      print("onSortContact");
+    }
+    final state = this.state;
+    if(state is ContactsLoadedState){
+      emit(ContactsLoadingState());
+      List<Contact> contacts = state.contacts;
+      
     contacts.sort((b, a) => a.id!.compareTo(b.id!)
     );
-      }
     
     emit(ContactsLoadedState(contacts));
     }
